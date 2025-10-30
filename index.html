@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dental Hero — Precise Smile</title>
+    <meta name="description" content="Modern, sleek appointment hero section with form." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN (standalone) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { inter: ['Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial'] },
+            colors: {
+              navy: {
+                950: '#071a2b', /* deep background */
+                900: '#0a2340',
+                800: '#0f2f55',
+              },
+              primary: {
+                DEFAULT: '#2F73FF',
+                600: '#2F73FF',
+                700: '#1f5fe6'
+              },
+              card: '#0e1e36',
+              input: '#0b1a30'
+            },
+            boxShadow: {
+              'elegant': '0 10px 30px rgba(0,0,0,.45)',
+              'inner-sm': 'inset 0 1px 0 rgba(255,255,255,.05)'
+            },
+            dropShadow: {
+              glow: '0 0 24px rgba(47,115,255,.35)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { height: 100%; }
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+    </style>
+  </head>
+  <body class="bg-navy-950 text-slate-100 antialiased">
+    <!-- Decorative background glow -->
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[520px] w-[820px] rounded-full bg-[radial-gradient(600px_300px_at_center,rgba(47,115,255,0.18),transparent_60%)]"></div>
+    </div>
+
+    <header class="sr-only">Dental clinic hero with appointment form</header>
+
+    <main>
+      <section class="relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 py-16 md:py-24">
+            <!-- Left copy -->
+            <div class="flex flex-col justify-center">
+              <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-5xl xl:text-[44px] leading-tight font-extrabold tracking-tight text-white">
+                Leave Your Worries At The
+                <br class="hidden sm:block"/>
+                Door And Enjoy A Healthier,
+                <br class="hidden sm:block"/>
+                More <span class="relative inline-block">
+                  <span class="underline decoration-primary/70 decoration-4 underline-offset-[6px]">Precise Smile</span>
+                </span>
+              </h1>
+
+              <p class="mt-5 max-w-xl text-slate-300/90 text-base sm:text-lg">
+                We use only the best quality materials on the market in order
+                to provide the best products to our patients. So don’t worry
+                about anything and book yourself.
+              </p>
+
+              <div class="mt-8">
+                <a href="#learn-more"
+                   class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-medium text-white ring-1 ring-white/15 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition shadow-inner">
+                  Learn More
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4">
+                    <path fill="currentColor" d="M13.293 4.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1-1.414-1.414L17.586 12l-4.293-4.293a1 1 0 0 1 0-1.414Z"/>
+                    <path fill="currentColor" d="M3 12a1 1 0 0 1 1-1h13a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right card -->
+            <div class="">
+              <div class="mx-auto max-w-md rounded-2xl bg-card/90 p-6 sm:p-7 lg:p-8 shadow-elegant ring-1 ring-white/10 backdrop-blur">
+                <h2 class="text-center text-white text-lg sm:text-xl font-semibold">Request Appointment</h2>
+
+                <form id="appointmentForm" class="mt-6 space-y-4">
+                  <!-- Name -->
+                  <label class="block">
+                    <span class="sr-only">Full Name</span>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      placeholder="Full Name"
+                      autocomplete="name"
+                      required
+                      class="w-full rounded-lg bg-input/80 px-4 py-3 text-base text-white placeholder-slate-400 outline-none ring-1 ring-white/10 shadow-inner-sm focus:ring-2 focus:ring-primary/60 transition"
+                    />
+                  </label>
+
+                  <!-- Phone -->
+                  <label class="block">
+                    <span class="sr-only">Phone Number</span>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      placeholder="Phone Number"
+                      required
+                      class="w-full rounded-lg bg-input/80 px-4 py-3 text-base text-white placeholder-slate-400 outline-none ring-1 ring-white/10 shadow-inner-sm focus:ring-2 focus:ring-primary/60 transition"
+                    />
+                  </label>
+
+                  <!-- Email -->
+                  <label class="block">
+                    <span class="sr-only">Email Address</span>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email Address"
+                      autocomplete="email"
+                      required
+                      class="w-full rounded-lg bg-input/80 px-4 py-3 text-base text-white placeholder-slate-400 outline-none ring-1 ring-white/10 shadow-inner-sm focus:ring-2 focus:ring-primary/60 transition"
+                    />
+                  </label>
+
+                  <button type="submit"
+                          class="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 active:scale-[.99] transition">
+                    Submit
+                  </button>
+
+                  <p id="formMessage" class="hidden text-center text-sm text-emerald-400"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Optional "Learn more" anchor target -->
+      <section id="learn-more" class="pb-16 md:pb-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="rounded-2xl border border-white/10 bg-white/[.02] p-6 text-slate-300">
+            <h3 class="text-white font-semibold text-lg">Why patients choose us</h3>
+            <p class="mt-2 max-w-3xl">
+              Precision-driven dentistry, compassionate care, and top-tier materials.
+              Book confidently—your smile is in expert hands.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
