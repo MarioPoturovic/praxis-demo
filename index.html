@@ -1,141 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dental Hero — Precise Smile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordinacija Praxis</title>
     <meta
       name="description"
-      content="Modern, sleek appointment hero section with form."
+      content="Ordinacija Praxis - moderna stomatološka ordinacija sa preciznim uslugama i online zakazivanjem termina."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Tailwind CSS CDN (standalone) -->
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              inter: ["Inter", "system-ui", "Avenir", "Helvetica", "Arial"],
-            },
             colors: {
-              navy: {
-                950: "#071a2b" /* deep background */,
-                900: "#0a2340",
-                800: "#0f2f55",
-              },
-              primary: {
-                DEFAULT: "#2F73FF",
-                600: "#2F73FF",
-                700: "#1f5fe6",
-              },
-              card: "#0e1e36",
-              input: "#0b1a30",
+              primary: "#3d9854",
+              background: "#fefffe",
+              dark: "#0b1a0f",
             },
-            boxShadow: {
-              elegant: "0 10px 30px rgba(0,0,0,.45)",
-              "inner-sm": "inset 0 1px 0 rgba(255,255,255,.05)",
-            },
-            dropShadow: {
-              glow: "0 0 24px rgba(47,115,255,.35)",
+            fontFamily: {
+              inter: ["Inter", "system-ui", "sans-serif"],
             },
           },
         },
       };
     </script>
-    <style>
-      :root {
-        color-scheme: dark;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
-          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      }
-    </style>
   </head>
-  <body class="bg-navy-950 text-slate-100 antialiased">
-    <!-- Decorative background glow -->
-    <div class="pointer-events-none absolute inset-0 -z-10">
-      <div
-        class="absolute -top-24 left-1/2 -translate-x-1/2 h-[520px] w-[820px] rounded-full bg-[radial-gradient(600px_300px_at_center,rgba(47,115,255,0.18),transparent_60%)]"
-      ></div>
-    </div>
-
-    <header class="sr-only">Dental clinic hero with appointment form</header>
-
-    <main>
-      <section class="relative">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <body class="bg-background text-dark antialiased">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 flex justify-center pt-6 px-4">
+      <nav
+        class="relative w-full max-w-5xl bg-[#f2fbf5] rounded-full shadow-sm border border-green-100 px-6 py-3 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
           <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 py-16 md:py-24"
+            class="bg-primary/10 p-2 rounded-full flex items-center justify-center"
           >
-            <!-- Left copy -->
-            <div class="flex flex-col justify-center">
-              <h1
-                class="text-3xl xs:text-4xl sm:text-5xl lg:text-5xl xl:text-[44px] leading-tight font-extrabold tracking-tight text-white"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-primary"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 8c.928 0 1.78.393 2.379 1.016A3.361 3.361 0 0 1 16 11.4c0 1.556-.994 2.9-2.379 3.484A3.564 3.564 0 0 1 12 15a3.564 3.564 0 0 1-1.621-.116A3.485 3.485 0 0 1 8 11.4c0-1.556.994-2.9 2.379-3.484A3.564 3.564 0 0 1 12 8Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 22c4.418 0 8-3.582 8-8 0-2.044-.78-3.902-2.061-5.297C16.657 6.212 14.403 5 12 5s-4.657 1.212-5.939 3.703A7.972 7.972 0 0 0 4 14c0 4.418 3.582 8 8 8Z"
+              />
+            </svg>
+          </div>
+          <span class="font-bold text-lg text-dark">Praxis</span>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button
+          id="menu-btn"
+          class="lg:hidden text-dark focus:outline-none hover:text-primary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        <!-- Menu items -->
+        <div
+          id="menu"
+          class="absolute lg:static top-full left-0 w-full lg:w-auto bg-[#f2fbf5] lg:bg-transparent rounded-3xl shadow-lg lg:shadow-none border lg:border-0 border-green-100 mt-3 lg:mt-0 hidden lg:flex flex-col lg:flex-row items-center gap-2 lg:gap-6 p-5 lg:p-0"
+        >
+          <a href="#" class="nav-link">Početna stranica</a>
+
+          <!-- Dropdown: Nase usluge -->
+          <div class="relative group">
+            <button class="nav-link flex items-center gap-1 focus:outline-none">
+              Naše usluge
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
-                Leave Your Worries At The
-                <br class="hidden sm:block" />
-                Door And Enjoy A Healthier,
-                <br class="hidden sm:block" />
-                More
-                <span class="relative inline-block">
-                  <span
-                    class="underline decoration-primary/70 decoration-4 underline-offset-[6px]"
-                    >Precise Smile</span
-                  >
-                </span>
-              </h1>
-
-              <p class="mt-5 max-w-xl text-slate-300/90 text-base sm:text-lg">
-                We use only the best quality materials on the market in order to
-                provide the best products to our patients. So don’t worry about
-                anything and book yourself.
-              </p>
-
-              <div class="mt-8">
-                <a
-                  href="#learn-more"
-                  class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-medium text-white ring-1 ring-white/15 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 transition shadow-inner"
-                >
-                  Learn More
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    class="h-4 w-4"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M13.293 4.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1-1.414-1.414L17.586 12l-4.293-4.293a1 1 0 0 1 0-1.414Z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M3 12a1 1 0 0 1 1-1h13a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z"
-                    />
-                  </svg>
-                </a>
-              </div>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              class="absolute hidden group-hover:block bg-white border border-gray-100 rounded-xl shadow-md mt-2 w-44 py-2 z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >Specijalistički pregledi</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >Manualna terapija (kiropraktira)</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >Akupunktura</a
+              >
             </div>
+          </div>
 
+          <!-- Dropdown: Ordinacija Praxis -->
+          <div class="relative group">
+            <button class="nav-link flex items-center gap-1 focus:outline-none">
+              Ordinacija Praxis
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              class="absolute hidden group-hover:block bg-white border border-gray-100 rounded-xl shadow-md mt-2 w-44 py-2 z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >O nama</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >Cjenovnik usluga</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition"
+                >Naša lokacija</a
+              >
+            </div>
+          </div>
+
+          <a href="#" class="nav-link">FAQ</a>
+          <a href="#" class="nav-link">Kontakt</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-16 sm:py-20 lg:py-20 mt-8">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(700px_400px_at_center,rgba(61,152,84,0.15),transparent_70%)]"
+      ></div>
+
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+        >
+          <!-- Left content -->
+          <div class="max-w-xl">
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-dark"
+            >
+              Privatna Praxis
+              <span
+                class="block text-primary underline underline-offset-8 decoration-4 decoration-primary"
+                >Dr. Pecar</span
+              >
+            </h1>
+
+            <p class="mt-5 text-base sm:text-lg text-gray-700 leading-relaxed">
+              Privatna ordinacija Praxis – dr. Pecar nudi specijalističke i
+              subspecijalističke preglede iz oblasti fizikalne medicine i
+              rehabilitacije i reumatologije.
+            </p>
+
+            <div class="mt-8">
+              <a
+                href="#form"
+                class="inline-flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3 font-medium shadow-md hover:shadow-lg hover:bg-[#35844a] transition"
+              >
+                Saznaj više
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right embedded form -->
+          <div
+            id="form"
+            class="w-full max-w-md mx-auto bg-white shadow-lg rounded-2xl ring-1 ring-gray-100 p-4 sm:p-6 lg:p-8"
+          >
             <iframe
-              src="https://api.leadconnectorhq.com/widget/form/61Q6MkqFcyeeuW3Jf6rs"
+              src="https://api.leadconnectorhq.com/widget/form/GaD6UcwTCiu75jkn31wN"
               style="
                 width: 100%;
                 height: 100%;
                 border: none;
-                border-radius: 10px;
+                border-radius: 3px;
               "
-              id="inline-61Q6MkqFcyeeuW3Jf6rs"
+              id="inline-GaD6UcwTCiu75jkn31wN"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
               data-trigger-value=""
@@ -143,47 +253,19 @@
               data-activation-value=""
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
-              data-form-name="Website Form"
-              data-height="571"
-              data-layout-iframe-id="inline-61Q6MkqFcyeeuW3Jf6rs"
-              data-form-id="61Q6MkqFcyeeuW3Jf6rs"
-              title="Website Form"
+              data-form-name="Form 4"
+              data-height="402"
+              data-layout-iframe-id="inline-GaD6UcwTCiu75jkn31wN"
+              data-form-id="GaD6UcwTCiu75jkn31wN"
+              title="Form 4"
             >
             </iframe>
-
-            <!-- Hidden iframe target -->
-            <iframe
-              name="hidden_iframe"
-              id="hidden_iframe"
-              style="display: none"
-            ></iframe>
+            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Optional "Learn more" anchor target -->
-      <section id="learn-more" class="pb-16 md:pb-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div
-            class="rounded-2xl border border-white/10 bg-white/[.02] p-6 text-slate-300"
-          >
-            <h3 class="text-white font-semibold text-lg">
-              Why patients choose us
-            </h3>
-            <p class="mt-2 max-w-3xl">
-              Precision-driven dentistry, compassionate care, and top-tier
-              materials. Book confidently—your smile is in expert hands.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script
-      src="https://link.msgsndr.com/js/external-tracking.js"
-      data-tracking-id="tk_ac2c4f94f5554c53900cef67239f109d"
-    ></script>
-
-    <script src="./assets/app.js"></script>
+    <script src="/navbar.js"></script>
   </body>
 </html>
